@@ -6,17 +6,17 @@ published: true
 
 <section>Code</section>
 <p>
-  This is inline code; <ic lang=bash>echo hello</ic>
+  This is a inline code; <ic lang=bash>echo hello</ic>
 </p>
 
 <p>
-  This is code block!
+  This is a code block!
 </p>
 <code lang=c>
 #include <stdio.h>
 
 int main(void) {
-  printf("hello world!\n");
+  printf("Hello, World!\n");
 
   return 0;
 }
@@ -24,7 +24,7 @@ int main(void) {
 
 <section>Math</section>
 <p>
-    This is equation. <ieq>n=10</ieq>
+    This is a equation. <ieq>n=10</ieq>
 </p>
 <eq>
     y = \sum^n_{i=1} x_i + 1
