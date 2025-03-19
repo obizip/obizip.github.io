@@ -63,9 +63,9 @@ function img(contents: string, args: XwlArgs | null): string {
 function a(contents: string, args: XwlArgs | null): string {
   const href = args?.get("href");
   if (href) {
-    return `<a src="${href}">${contents}</a>`;
+    return `<a href="${href}">${contents}</a>`;
   } else {
-    throw Error("img needs 'src' parameter");
+    throw Error("a needs 'href' parameter");
   }
 }
 
