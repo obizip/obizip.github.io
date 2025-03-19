@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+    <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="icon/apple-touch-icon-180x180.png" sizes="180x180">
+    <link rel="icon" type="image/png" href="icon/android-chrome-192x192.png" sizes="192x192">
+    <title>ブログを作る</title>
+  </head>
+  <body>
+    <header>
+      <div><a class="logo" href="/">obizip.jp</a></div>
+      <div><a class="posts" href="/posts/">Posts</a></div>
+    </header>
+    <main>
+      
+  <article>
+    <h1>ブログを作る</h1>
+    <p class="date">2025.03.16</p>
+    <article>
+  <p>
+    何度かブログを作ろうとしたが、どれも途中で投げ出していた。 Hugo, zola,
+    Next.js, Lume, Hono, Vike などを試したが、どれもしっくりこなかった。
+    単純にSSGとして使うには考えることが多かったり、
+    SSGに特化してるのはいいが自由度が少なかったり、だいたいそういった理由で投げ出していたと思う。
+  </p>
+  <p>
+    現状は、フレームワークは使わない方針で作ることにした。
+    重複するhtmlはテンプレートエンジン(vento)を用い、単純なファイルベースルーティングにした。
+    個人的にこのシンプルさに満足している。
+  </p>
+  <p>
+    開発時は、出力ディレクトリをルートとしてviteを実行することで Hot-reload
+    環境を簡単に構築でき、良い体験だった。
+  </p>
+  <p>
+    モダンなフレームワークから距離を取って、
+    遠回りを楽しむのもまた一興ではなかろうか。
+  </p>
+</article>
+
+  </article>
+
+    </main>
+  </body>
+</html>
+
