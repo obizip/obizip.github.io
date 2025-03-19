@@ -1,0 +1,41 @@
+---
+title: "A test post"
+date: 2025.03.15
+published: true
+---
+
+<section>Code</section>
+<p>
+  This is inline code; <ic lang=bash>echo hello</ic>
+</p>
+
+<p>
+  This is code block!
+</p>
+<code lang=c>
+#include <stdio.h>
+
+int main(void) {
+  printf("hello world!\n");
+
+  return 0;
+}
+</code>
+
+<section>Math</section>
+<p>
+    This is equation. <ieq>n=10</ieq>
+</p>
+<eq>
+    y = \sum^n_{i=1} x_i + 1
+</eq>
+
+<section>Image</section>
+<p>
+  This is a <b>picture</b>.
+</p>
+<img src=/static/image/250315-test.png>The test image</img>
+
+<p>
+  Looks good?
+</p>
