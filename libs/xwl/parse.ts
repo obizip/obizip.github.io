@@ -12,7 +12,7 @@ function parseArgs(raw_args: string): XwlArgs {
 }
 
 function parseXwlTag(matched: RegExpMatchArray): XwlTag {
-  const tag_str = matched[1];
+  let tag_str = matched[1];
   const args_str = matched[2];
   const contents_str = matched[3];
 
@@ -21,10 +21,20 @@ function parseXwlTag(matched: RegExpMatchArray): XwlTag {
     args = parseArgs(args_str);
   }
 
+  let contents = null;
+  // if a tag starts "!" then do not parse contents
+  if (tag_str.charAt(0) === "!") {
+    tag_str = tag_str.substring(1);
+    console.log(tag_str);
+    contents = [contents_str.trim()];
+  } else {
+    contents = parseXwlInner(contents_str);
+  }
+
   return {
     tag: tag_str,
     args: args,
-    contents: parseXwlInner(contents_str),
+    contents: contents,
   };
 }
 
@@ -32,7 +42,7 @@ function parseXwlInner(input: string): (XwlTag | string)[] {
   const trimed = input.trim();
   let parsed: (XwlTag | string)[] = [];
 
-  const re_open_tag = /<([a-zA-Z][\w\-]*)([^>]*)>(.*?)<\/\1>/s;
+  const re_open_tag = /<([!a-zA-Z][\w\-]*)([^>]*)>(.*?)<\/\1>/s;
 
   const matched = trimed.match(re_open_tag);
   if (matched) {
