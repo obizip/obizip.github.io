@@ -1,0 +1,16 @@
+{{ layout "./layouts/default.vto" { title: "Posts" } }}
+  <h1>Posts</h1>
+  <p>雑多な記録。<a href="https://zenn.dev/obizip">Zenn</a>は技術的な話題だけです。</p>
+  {{ for post of posts }}
+    <ul class="post_list">
+      <li class="post_element">
+        <p>
+          <a class="post_title" href={{`/posts/${post.slug}.html`}}>
+          {{post.title}}
+          </a>
+        </p>
+        <p class="post_date">{{post.date}}</p>
+      </li>
+    </ul>
+  {{ /for }}
+{{ /layout }}
