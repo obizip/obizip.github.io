@@ -109,6 +109,10 @@ async function inlineCode(
   return `<span class="code-inline">${html}</span>`;
 }
 
+function mermaid(contents: string, _args: XwlArgs | null): string {
+  return `<pre class="mermaid">${contents}</pre>`;
+}
+
 export async function tagToString(tag: XwlTag): Promise<string> {
   //export function tagToString(tag: XWLTag): string {
   let contents = "";
@@ -154,6 +158,8 @@ export async function tagToString(tag: XwlTag): Promise<string> {
     case "icode":
     case "ic":
       return await inlineCode(contents, tag.args);
+    case "mermaid":
+      return mermaid(contents, tag.args);
     default:
       throw Error(`unknown tag: ${tag.tag}`);
   }

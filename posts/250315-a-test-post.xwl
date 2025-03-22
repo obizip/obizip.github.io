@@ -36,6 +36,16 @@ int main(void) {
 </p>
 <img src=/static/image/250315-test.png>The test image</img>
 
+<section>Diagram</section>
+
+This is a mermaid diagram.
+<mermaid>
+    graph TD
+    A[Client] --> B[Load Balancer]
+    B --> C[Server01]
+    B --> D[Server02]
+</mermaid>
+
 <p>
   Looks good?
 </p>

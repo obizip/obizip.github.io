@@ -16,6 +16,10 @@
     </header>
     <main>
       
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
   <article>
     <h1>A test post</h1>
     <p class="date">2025.03.15</p>
@@ -73,6 +77,14 @@
   <h2>Image</h2>
   <p>This is a <b>picture</b>.</p>
   <img src="/static/image/250315-test.png" alt="The test image" />
+  <h2>Diagram</h2>
+  This is a mermaid diagram.
+  <pre class="mermaid">
+graph TD
+    A[Client] --> B[Load Balancer]
+    B --> C[Server01]
+    B --> D[Server02]</pre
+  >
   <p>Looks good?</p>
 </article>
 
