@@ -139,8 +139,21 @@ footer {
 		margin-top: 1em;
 	}
 
+	& li.post_element::after {
+		content: '';
+		border-top: 3px dotted;
+		border-color: gray;
+		flex: auto;
+	}
+
 	& .post_title {
 		font-size: 1.2em;
+		margin-right: 0.5em;
+	}
+
+	& .post_date {
+		order: 1;
+		margin-left: 0.5em;
 	}
 }
 
