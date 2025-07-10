@@ -1,130 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans+JP&display=swap');
+
+
 :root {
-  --main-width: 750px;
-  --header-width: 800px;
+	--font-en: "Courier Prime";
+	--font-ja: "IBM Plex Sans JP", sans-serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 html {
-  background-color: #f5f5f5;
+	margin: 0;
 }
 
-main {
-  margin: auto;
-  width: min(85%, var(--main-width));
+body {
+	margin: 2em auto auto auto;
+	width: min(90%, 600px);
 }
 
-h1 {
-  margin-bottom: 0.5em;
-}
-
-/* header */
 
 header {
-  width: min(95%, var(--header-width));
-  margin: 15px auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 5px;
+	margin-bottom: 20px;
+	border-bottom: double;
+	border-color: grey;
+
+	& .siteident {
+		display: flex;
+		align-items: center;
+
+		& img.siteicon {
+			width: 2em;
+			border-radius: 20%;
+			margin-right: 5px;
+		}
+
+		& .sitename {
+			& a {
+				font-family: var(--font-en);
+				font-weight: 700;
+				font-style: normal;
+				font-size: 1.75em;
+				text-decoration: none;
+				color: black;
+			}
+		}
+	}
+
+	& ul {
+		& li {
+			font-family: var(--font-en);
+			font-size: 1.2em;
+			list-style: none;
+		}
+	}
 }
 
-.logo {
-  padding: 10px;
-  color: #19e7e7;
-  font-size: 1.5em;
-  font-weight: bold;
-  text-decoration: none;
-  background-color: #1a1a1a;
-  border-radius: 5px;
+.home {
+	& h1 {
+		font-family: var(--font-en);
+		font-weight: 500;
+		font-style: normal;
+
+		text-align: center;
+	}
+
+	& h2 {
+		font-family: var(--font-en);
+		font-weight: 500;
+		font-style: italic;
+
+		margin: 1.5em 0 0.5em 0;
+		text-align: center;
+	}
+
+	& p {
+		font-family: var(--font-en);
+		font-weight: 400;
+		font-style: normal;
+		font-size: 1.2em;
+
+		line-height: 1.75;
+	}
+
+	& li {
+		font-family: var(--font-en);
+		font-weight: 400;
+		font-style: normal;
+		font-size: 1.1em;
+	}
+
+	& ul {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+
+		& li {
+			list-style: none;
+			text-decoration: underline;
+			text-decoration-color: lightgrey;
+			line-height: 1.5em;
+			padding: 0 0.5em;
+		}
+	}
 }
 
-.posts {
-  font-size: 1.2em;
-}
-
-/* /index.html */
-
-.home_greeting {
-  margin-left: min(5%, 100px);
-}
-
-.home_contents {
-  margin: auto;
-  width: min(85%, 500px);
-}
-
-.home_contents h2 {
-  font-size: 1.4em;
-  margin-top: 1em;
-  text-decoration: underline;
-}
-
-.home_contents h2:first-child {
-  margin-top: 0;
-}
-
-.home_contents li {
-  margin-left: 2em;
-}
 
 /* /posts/index.html */
 
-.post_element {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 1em;
-}
+.posts {
+	& h1 {
+		font-family: var(--font-en);
+		font-weight: 500;
+		font-style: normal;
 
-.post_title {
-  font-size: 1.2em;
+		margin-bottom: 5px;
+	}
+
+	& :where(p, li) {
+		font-family: var(--font-ja);
+	}
+
+	& li.post_element {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 1em;
+	}
+
+	& .post_title {
+		font-size: 1.2em;
+	}
 }
 
 /* post */
 article {
-  & h1 {
-    text-align: center;
-    margin-bottom: 0.2em;
-  }
+	& :where(h1, h2, h3, p, li) {
+		font-family: var(--font-ja);
+	}
 
-  & .date {
-    text-align: center;
-    margin-bottom: 1em;
-  }
+	& h1 {
+		text-align: center;
+		margin-bottom: 0.2em;
+	}
 
-  & :where(h2, h3, h4) {
-    margin-bottom: 0.5em;
-  }
+	& .date {
+		text-align: center;
+		margin-bottom: 1em;
+	}
 
-  & :where(p, math, .code-display pre, img) {
-    margin-bottom: 1em;
-  }
+	& :where(h2, h3, h4) {
+		margin-bottom: 0.5em;
+	}
 
-  & .code-display pre {
-    font-size: 1.1em;
-    padding: 1em;
-    border-radius: 10px;
-  }
+	& :where(p, math, .code-display pre, img) {
+		margin-bottom: 1em;
+	}
 
-  & .code-inline {
-    padding: 5px;
-    border-radius: 5px;
-    background-color: #eee;
-  }
+	& .code-display pre {
+		font-size: 1.1em;
+		padding: 1em;
+		border-radius: 10px;
+	}
 
-  & img {
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    width: 80%;
-  }
+	& .code-inline {
+		padding: 5px;
+		border-radius: 5px;
+		background-color: #eee;
+	}
 
-  & .mermaid svg {
-    display: block;
-    margin: auto;
-  }
+	& img {
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		width: 80%;
+	}
+
+	& .mermaid svg {
+		display: block;
+		margin: auto;
+	}
 }
