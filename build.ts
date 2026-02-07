@@ -1,18 +1,11 @@
 import vento from "@vento/vento";
 import { Environment } from "@vento/vento/src/environment.ts";
-import { extractYaml } from "@std/front-matter";
-import { parseXwl } from "./libs/xwl/parse.ts";
-import { formatHtml, tagToHtml } from "./libs/xwl/to_html.ts";
-
-type PostAttrs = {
-  title: string;
-  date: string;
-  published: boolean;
-};
+import { HTMLConverter } from "./libs/xdoctor/html_converter.ts";
 
 type Post = {
   title: string;
-  date: string;
+  createdAt: string;
+  modifiedAt: string;
   slug: string;
 };
 
@@ -37,23 +30,18 @@ async function buildPosts(
   for await (const dirEntry of Deno.readDir(postInputDir)) {
     const postPath = postInputDir + "/" + dirEntry.name;
 
+    console.log(postPath);
+
     // decode post file
     const decoder = new TextDecoder("utf-8");
     const data = await Deno.readFile(postPath);
     const postText = decoder.decode(data);
 
-    // read front-matter
-    const extracted = extractYaml(postText);
-    const postAttrs = extracted.attrs as PostAttrs;
+    const converter = new HTMLConverter(postText);
 
-    if (postAttrs.published) {
-      const postBody = `<article>${extracted.body}</article>`;
+    const { info, content } = await converter.convertAll();
 
-      // parse XWL to HTML
-      const postXwl = parseXwl(postBody);
-      let postHtml = await tagToHtml(postXwl);
-      postHtml = await formatHtml(postHtml);
-
+    if (!info.draft) {
       // output post
       const outputPostPath = postOutputDir + "/" +
         dirEntry.name.replace(/xwl$/, "html");
@@ -63,17 +51,18 @@ async function buildPosts(
         postTemplatePath,
         outputPostPath,
         {
-          title: postAttrs.title,
-          date: postAttrs.date,
-          article: postHtml,
+          title: info.title,
+          createdAt: info.createdAt,
+          article: `<article>${content}</article>`,
         },
       );
 
       // push post metadata
       const slug = dirEntry.name.replace(/\.xwl$/, "");
       posts.push({
-        title: postAttrs.title,
-        date: postAttrs.date,
+        title: info.title,
+        createdAt: info.createdAt,
+        modifiedAt: info.modifiedAt,
         slug,
       });
     }
@@ -93,7 +82,7 @@ async function build() {
 
   let posts = await buildPosts(ventoEnv);
   posts = posts.sort(
-    (p1, p2) => new Date(p1.date) < new Date(p2.date) ? 1 : -1,
+    (p1, p2) => new Date(p1.createdAt) < new Date(p2.createdAt) ? 1 : -1,
   );
   console.log(posts);
 

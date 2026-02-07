@@ -1,51 +1,63 @@
----
-title: "A Test Post"
-date: 2025.03.15
-published: true
----
+<article>
+  <info>
+    <title>A Test Post</title>
+    <createdAt>2025.03.15</createdAt>
+    <modifiedAt>2025.03.15</modifiedAt>
+  </info>
 
-<section>Code</section>
-<p>
-  This is a inline code; <ic lang=bash>echo hello</ic>
-</p>
+  <section>
+    <title>Code</title>
+    <p>
+      This is a inline code; <code>echo hello</code>
+    </p>
 
-<p>
-  This is a code block!
-</p>
-<code lang=c>
+    <p>
+      This is a code block!
+    </p>
+  <listing lang="c">
+ <![CDATA[
 #include <stdio.h>
 
 int main(void) {
-  printf("Hello, World!\n");
-
-  return 0;
+    // こんにちは世界
+    printf("Hello, world!\n");
+    return 0;
 }
-</code>
+]]>
+  </listing>
+  </section>
 
-<section>Math</section>
-<p>
-    This is a equation. <ieq>n=10</ieq>
-</p>
-<eq>
-    y = \sum^n_{i=1} x_i + 1
-</eq>
+  <section>
+    <title>Math</title>
+    <p>
+        This is a equation. <ieq>n=10</ieq>
+    </p>
+    <eq>
+ <![CDATA[
+y = \sum^n_{i=1} x_i + 1
+]]>
+    </eq>
+  </section>
 
-<section>Image</section>
-<p>
-  This is a <b>picture</b>.
-</p>
-<img src=/static/image/250315-test.png>The test image</img>
+  <section>
+    <title>Image</title>
+    <p>
+      This is a <b>picture</b>.
+    </p>
+    <figure src="/static/image/250315-test.png" alt="">The test image</figure>
+  </section>
 
-<section>Diagram</section>
-
-This is a mermaid diagram.
-<mermaid>
-    graph TD
-    A[Client] --> B[Load Balancer]
-    B --> C[Server01]
-    B --> D[Server02]
-</mermaid>
-
-<p>
-  Looks good?
-</p>
+  <section>
+    <title>Diagram</title>
+    This is a mermaid diagram.
+    <diagram>
+        graph TD
+        A[Client] --> B[Load Balancer]
+        B --> C[Server01]
+        B --> D[Server02]
+    </diagram>
+    <p>
+      Looks good?
+    </p>
+  </section>
+</article>

@@ -1,11 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans+JP&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Sans+JP&display=swap");
 
 :root {
 	--font-en: "Courier Prime";
 	--font-ja: "IBM Plex Sans JP", sans-serif;
 }
-
 
 html {
 	margin: 0;
@@ -15,7 +13,6 @@ body {
 	margin: 2em auto auto auto;
 	width: min(90%, 750px);
 }
-
 
 header {
 	display: flex;
@@ -116,7 +113,6 @@ footer {
 	}
 }
 
-
 /* /posts/index.html */
 
 .posts {
@@ -140,7 +136,7 @@ footer {
 	}
 
 	& li.post_element::after {
-		content: '';
+		content: "";
 		border-top: 3px dotted;
 		border-color: gray;
 		flex: auto;
@@ -168,7 +164,7 @@ article {
 		margin-bottom: 0.2em;
 	}
 
-	& .date {
+	& .createdAt {
 		text-align: center;
 		margin-bottom: 1em;
 	}
@@ -200,8 +196,18 @@ article {
 		width: 80%;
 	}
 
-	& .mermaid svg {
+	& .diagram svg {
 		display: block;
 		margin: auto;
 	}
+
+	& .displayMath svg {
+		display: block;
+		margin: auto;
+	}
+
+	/* svg { */
+	/* 	display: block; */
+	/* 	margin: 0 auto; */
+	/* } */
 }
