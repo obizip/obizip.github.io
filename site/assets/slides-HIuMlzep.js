@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-DBS2Xqfh.js";var t=e();function n(){return(0,t.jsx)(`div`,{children:`Hello "/slides"!`})}export{n as component};

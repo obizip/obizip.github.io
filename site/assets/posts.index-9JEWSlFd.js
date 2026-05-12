@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-DBS2Xqfh.js";import{i as t,t as n}from"./posts-C2oNxDfh.js";var r=e();function i(){return(0,r.jsx)(`ul`,{className:`prose`,children:n.map(e=>(0,r.jsx)(`li`,{children:(0,r.jsx)(t,{params:{slug:e.slug},to:`/posts/$slug/`,children:e.slug})},e.slug))})}export{i as component};
